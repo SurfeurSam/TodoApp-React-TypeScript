@@ -9,12 +9,7 @@ interface Props {
 
 const Input: React.FC<Props> = ({ todo, setTodo, handleTodo }) => {
   return (
-    <form
-      className="inputTodo"
-      onSubmit={
-        handleTodo
-      }
-    >
+    <form className="inputTodo" onSubmit={handleTodo}>
       <input
         name="todo"
         type="input"

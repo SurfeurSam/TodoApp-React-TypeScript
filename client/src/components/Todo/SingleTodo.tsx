@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Props } from "../../types";
 import { RiEdit2Line, RiDeleteBin2Line } from "react-icons/ri";
 import { MdDone, MdDoneAll, MdAccessibilityNew } from "react-icons/md";
-import './SingleTodo.css'
+import "./SingleTodo.css";
 
 const SingleTodo = ({ todo, todos, setTodos }: Props) => {
   const [edit, setEdit] = useState<boolean>(false);
@@ -27,19 +27,21 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
   // };
 
   const handleDeleteTodo = async (id: number): Promise<void> => {
-    await fetch('http://localhost:3010/todo', {
+    await fetch("http://localhost:3010/todo", {
       method: "DELETE",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ id })
-    })
-    setTodos((pre) => 
-      pre.filter((el) => el.id !== id))
-  }
+      body: JSON.stringify({ id }),
+    });
+    setTodos((pre) => pre.filter((el) => el.id !== id));
+  };
 
   return (
-    <form className="singleTodo" onSubmit={(event) => handleEditTodo(event, todo.id)}>
+    <form
+      className="singleTodo"
+      onSubmit={(event) => handleEditTodo(event, todo.id)}
+    >
       {edit ? (
         <input
           value={editTodo}
@@ -52,7 +54,7 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
         <span className="singleTodoText">{todo.todo}</span>
       )}
 
-<div>
+      <div>
         <span
           className="icon"
           onClick={() => {
@@ -67,7 +69,13 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
           <RiDeleteBin2Line />
         </span>
         <span className="icon" onClick={() => handleIsDone(todo.id)}>
-          { todo.isDone === null ? (< MdAccessibilityNew/>) : (<MdDone />) || todo.isDone ? (< MdDoneAll/>) : (<MdDone />) }
+          {todo.isDone === null ? (
+            <MdAccessibilityNew />
+          ) : <MdDone /> || todo.isDone ? (
+            <MdDoneAll />
+          ) : (
+            <MdDone />
+          )}
         </span>
       </div>
     </form>
