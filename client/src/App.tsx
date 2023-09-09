@@ -25,7 +25,7 @@ const App: React.FC = () => {
         "Content-Type": "application/json",
       },
       credentials: "include",
-      body: JSON.stringify({ todo, isDone: true }),
+      body: JSON.stringify({ todo, isDone: false }),
     });
 
     const result = await response.json();

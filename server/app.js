@@ -5,7 +5,7 @@ const FileStore = require('session-file-store')(session);
 
 const express = require('express');
 
-// рекварим МИДЛВЕЙРЫ
+// реквайрим МИДЛВЕЙРЫ
 const dbCheck = require('./src/middlewares/dbCheck');
 
 // реквайрим РОУТЫ
