@@ -36,32 +36,6 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
         );    
   }
 
-  // inputs.forEach((el) => {
-  //   el.addEventListener('change', async (e) => {
-  //     e.preventDefault();
-  //     const data = { value: e.target.checked, name: e.target.name }
-  //     console.log("🚀🚀🚀🚀🚀 ~ data:", data)
-    
-  //     const { formid } = editForm.dataset;
-  //     console.log("🚀🚀🚀🚀🚀 ~ formid:", formid)
-  //     try {
-  //       await fetch(`/profile/edit.shablon/${formid}`, {
-  //         method: 'PUT',
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //         },
-  //         body: JSON.stringify(data),
-  //       });
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   });
-  // });
-
-  // const handleDeleteTodo = (id: number) => {
-  //   setTodos(todos.filter((el) => el.id !== id));
-  // };
-
   const handleDeleteTodo = async (id: number): Promise<void> => {
     await fetch("http://localhost:3010/todo", {
       method: "DELETE",
